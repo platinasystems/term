@@ -77,3 +77,8 @@ func (t *Term) Buffered() (int, error) {
 	err := termios.Tiocoutq(uintptr(t.fd), &n)
 	return n, err
 }
+
+// Fd returns the file descriptor associated with the underlying terminal
+func (t *Term) Fd() uintptr {
+	return uintptr(t.fd)
+}
